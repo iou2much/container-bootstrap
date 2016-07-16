@@ -4,4 +4,4 @@ dest = "/usr/local/zookeeper/conf/zoo.cfg"
 keys = [
     "/zk/hosts",
 ]
-reload_cmd = "/usr/local/zookeeper/bin/zkServer.sh restart"
+reload_cmd = "/bootstrap/zookeeper/reload.sh"
