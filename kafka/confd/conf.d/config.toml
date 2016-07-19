@@ -1,0 +1,8 @@
+[template]
+src = "server.properties.tmpl"
+dest = "/usr/local/kafka/config/server.properties"
+keys = [
+    "/zk/hosts",
+    "/kafka/hosts",
+]
+reload_cmd = "/bootstrap/zookeeper/reload.sh"
