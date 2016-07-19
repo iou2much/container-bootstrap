@@ -17,7 +17,7 @@ is_exist=0
 
 
 
-if [ $is_exist -eq 1 & $hostname == "kafka.${brokerID}.svc" ] ;
+if [ $is_exist -eq 1 ] && [ "$hostname" == "kafka.${brokerID}.svc" ] ;
 then
   echo 'brokerId already exists!!!!!!!!'
   confd -confdir=/bootstrap/kafka/confd/ -watch=true -onetime=false -backend etcd -node http://etcd.svc:2379 &
@@ -30,8 +30,9 @@ else
   confd -confdir=/bootstrap/kafka/confd/ -watch=true -onetime=false -backend etcd -node http://etcd.svc:2379 &
   sleep 5
 
-  etcdctl2 set /kafka/hosts/${hostname} '{"id":"'${id}'","hostname":"'${hostname}'"}'
+  etcdctl2 set /kafka/hosts/${hostname} '{"id":"'${brokerID}'","hostname":"'${hostname}'"}'
   etcdctl2 set /trackdown/${hostname} "/kafka/hosts/${hostname}"
+  /bootstrap/kafka/reload.sh
 
 fi
 

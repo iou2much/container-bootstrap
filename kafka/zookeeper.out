@@ -1,0 +1,29 @@
+2016-07-19 06:16:05,727 [myid:] - INFO  [main:QuorumPeerConfig@103] - Reading configuration from: /usr/local/zookeeper/bin/../conf/zoo.cfg
+2016-07-19 06:16:05,794 [myid:] - WARN  [main:QuorumPeer$QuorumServer@155] - Failed to resolve address: zk3.svc
+java.net.UnknownHostException: zk3.svc: unknown error
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1276)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1192)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1126)
+	at java.net.InetAddress.getByName(InetAddress.java:1076)
+	at org.apache.zookeeper.server.quorum.QuorumPeer$QuorumServer.recreateSocketAddresses(QuorumPeer.java:148)
+	at org.apache.zookeeper.server.quorum.QuorumPeer$QuorumServer.<init>(QuorumPeer.java:133)
+	at org.apache.zookeeper.server.quorum.QuorumPeerConfig.parseProperties(QuorumPeerConfig.java:207)
+	at org.apache.zookeeper.server.quorum.QuorumPeerConfig.parse(QuorumPeerConfig.java:119)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:101)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:78)
+2016-07-19 06:16:05,817 [myid:] - INFO  [main:QuorumPeer$QuorumServer@149] - Resolved hostname: zk2.svc to address: zk2.svc/192.168.16.14
+2016-07-19 06:16:05,825 [myid:] - INFO  [main:QuorumPeer$QuorumServer@149] - Resolved hostname: zk1.svc to address: zk1.svc/192.168.16.13
+2016-07-19 06:16:05,828 [myid:] - INFO  [main:QuorumPeerConfig@331] - Defaulting to majority quorums
+2016-07-19 06:16:05,839 [myid:] - ERROR [main:QuorumPeerMain@85] - Invalid config, exiting abnormally
+org.apache.zookeeper.server.quorum.QuorumPeerConfig$ConfigException: Error processing /usr/local/zookeeper/bin/../conf/zoo.cfg
+	at org.apache.zookeeper.server.quorum.QuorumPeerConfig.parse(QuorumPeerConfig.java:123)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:101)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:78)
+Caused by: java.lang.IllegalArgumentException: /tmp/zookeeper/zkdata/myid file is missing
+	at org.apache.zookeeper.server.quorum.QuorumPeerConfig.parseProperties(QuorumPeerConfig.java:341)
+	at org.apache.zookeeper.server.quorum.QuorumPeerConfig.parse(QuorumPeerConfig.java:119)
+	... 2 more
+Invalid config, exiting abnormally

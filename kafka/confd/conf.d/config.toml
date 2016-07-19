@@ -5,4 +5,4 @@ keys = [
     "/zk/hosts",
     "/kafka/hosts",
 ]
-reload_cmd = "/bootstrap/zookeeper/reload.sh"
+reload_cmd = "/bootstrap/kafka/reload.sh"
