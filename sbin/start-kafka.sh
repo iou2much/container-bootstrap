@@ -6,4 +6,4 @@ exec docker run -d \
   --name $1 \
   --expose=9092 \
   registry.aliyuncs.com/chibs/scipyserver \
-  /start-kafka.sh $2
+  /bootstrap/kafka/start-kafka.sh $2

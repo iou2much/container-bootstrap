@@ -2,10 +2,9 @@
 
 exec docker run -d \
   --net=foobar \
-  -e "VIRTUAL_HOST=api.debug.life" \
-  --name blog-backend \
+  --name docker-api \
   --expose=8888 \
-  -e "USE_HTTP=1" \
-  -v /home/chibs/blog/backend:/notebooks \
+  -v /var/run/docker.sock:/tmp/docker.sock:ro \
+  -v /home/chibs/ipython-root/docker_django/:/notebooks \
   registry.aliyuncs.com/chibs/scipyserver \
   /bootstrap/start-django.sh
